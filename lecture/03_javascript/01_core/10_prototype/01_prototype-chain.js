@@ -28,6 +28,7 @@ console.log(student.passion); //true
 // student가 프로토타입으로 연걸한 객체 확인
 console.log(Object.getPrototypeOf(student));
 // { id: 'user', activate: true, login: [Function: login] }
+console.log(Object.getPrototypeOf(student) === user); //true
 
 // *student가 activate를 직접 가지고 있는가*
 console.log('자신의 activate:', Object.hasOwn(student, 'activate'));
