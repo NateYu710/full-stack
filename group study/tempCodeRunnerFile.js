@@ -1,2 +1,2 @@
-withdraw(account, 8000);
-withdraw(account, 46000);
+mber) => member.point === 0);
+console.log(ZeroPoint);
