@@ -25,8 +25,23 @@
 </ul>
 
 <script>
+    const $parent = document.getElementById('parent');
+    const $child = document.getElementById('child');
 
-</script>
+    $parent.addEventListener('click', (e) => {
+        alert('부모(ul)가 클릭을 감지했습니다.');
+        console.log('---부모 핸들러---');
+        console.log('e.target:', e.target); // 이벤트가 실제로 시작된 요소
+        
+        // 이벤트 핸들러가 등록된 요소
+        console.log('e.currentTarget:', e.currentTarget);
+    });
+
+     $child.addEventListener('click', (e) => {
+         alert('자식(li)이 클릭되었습니다!');
+     })
+</script> 
+
 
 <hr>
 
@@ -45,7 +60,58 @@
 <button id="add-btn">음료 추가</button>
 
 <script>
+    //  이벤트 위임 적용!
+    // 개별로 하나씩 이벤트를 등록하는 방식
+    // const $items = document.querySelectorAll('#drink-list li');
+    // /** #drink-list li
+    //  * drink-list라는 id를 가진 요소 안의 모든 li를 선택하는 후손 선택자
+    //  * */
+    // console.log($items);
+    // $items.forEach(($item) => {
+    //     // 각각의 요소에 클릭 이벤트를 하나씩 등록
+    //     $item.addEventListener('click', () => {
+    //         $item.classList.toggle('highlight');
+    //         // hightlight class를 추가
+    //     });
+    // });
 
+     const $drinkList = document.getElementById('drink-list');
+     const $addBtn = document.getElementById('add-btn');
+
+    function highlight(element) {
+        element.classList.toggle('highlight');
+    }
+    // 이벤트 위임 활용
+    // 각 li가 아닌, 부모 ul에 이벤트 핸들러를 딱 한 번 등록
+    $drinkList.addEventListener('click', (e) => {
+        // closest : 가장 가까운 전달된 요소(li)를 찾는다. 만약 찾지 못하면 null
+        const $item = e.target.closest('li');
+        // 실제로 클릭한 요소(e.target)에서 시작해서, 
+        // 가장 가까운 li 요소를 찾아 $item에 저장하는 코드
+        
+        
+        if(!$item) return;
+        if(!$drinkList.contains($item)) return;
+        // 찾은 li가 내가 원하는 $drinkList 안에 있는 li인지 확인하는 안전장치
+        highlight($item);
+        console.log('클릭된 요소', e.target);
+        
+        
+        // if (e.target.matches('li')) {
+        //     // matches: 실제로 클릭한 요소가 뭔지 확인
+        //     highlight(e.target);
+        // };
+        // -- 이부분을 주석처리해야 e.target.closest이게 적용됨
+    });
+
+    // // 나중에 동적으로 추가되는 자식요소에도 이벤트 핸들러가 자동으로 등록된다
+    $addBtn.addEventListener('click', () => {
+        const $newLi = document.createElement('li');
+
+        $newLi.textContent = '사이다';
+
+        $drinkList.appendChild($newLi);
+    });
 </script>
 </body>
 </html>
