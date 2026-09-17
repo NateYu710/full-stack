@@ -240,3 +240,58 @@ const newProduct = {
 
 // 문제 5 풀이
 
+
+const products = [
+    { id: 1, name: '키보드', price: 50000, stock: 3 },
+    { id: 2, name: '마우스', price: 30000, stock: 0 },
+    { id: 3, name: '모니터', price: 200000, stock: 2 }
+];
+
+const newProduct = {
+    id: 4,
+    name: '스피커',
+    price: 80000,
+    stock: 4
+};
+
+const addedProducts = [...products, newProduct];
+
+
+const updatedProducts = addedProducts.map( (addedProduct) => {
+    if (addedProduct.id === 1){
+        return {...addedProduct, price:55000}  
+    }
+    /**
+     *  if (addedProduct.id === 1) {
+        addedProduct.price = 55000;
+    }
+     */
+
+    return addedProduct
+} );
+
+
+const availableProducts = updatedProducts.filter( (updatedProduct) => updatedProduct.stock > 0  )
+                                         .map( ({name}) => name );
+
+ 
+                                         
+
+const updatedPrices = updatedProducts.map( ({price}) => price );
+
+
+
+const getTotal =  (...prices) =>  {
+    const totalPrice = prices.reduce((sum, current) => {
+                        return sum + current;
+                        }, 0)
+    console.log('전체 상품 가격 합계:', totalPrice);
+}
+
+console.log('원본 상품 수:', products.length);
+console.log('추가 후 상품 수:', addedProducts.length);
+console.log('원본 키보드 가격:', products[0].price );
+console.log('변경된 키보드 가격:', updatedProducts[0].price );
+console.log('판매 가능 상품:', availableProducts);
+getTotal(...updatedPrices);
+

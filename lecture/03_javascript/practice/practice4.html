@@ -237,21 +237,24 @@
       <script>
         function searchProducts() {
           const $input = document.getElementById('search-input');
-          $input.value.trim().toLowerCase();
-          let $products = document.querySelectorAll('.product');
+          const $newInput = $input.value.trim().toLowerCase();
+          const $products = document.querySelectorAll('.product');
 
           let count = 0;
-          for (const product of products) {
-            if (product.includes($input)) {
-              $products.classList.add('matched');
+          for (const $product of $products) {
+            if ($product.textContent.includes($newInput)) {
+              $product.classList.add('matched');
               count++;
+            } else if ($newInput===''){
+                $product.classList.remove('matched');
             } else {
-              $products.ClassList.remove('matched');
+              $product.classList.remove('matched');
             }
           }
           const $searchResult = document.getElementById('search-result');
           $searchResult.textContent = count;
         }
+        
       </script>
     </section>
 
