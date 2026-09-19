@@ -100,18 +100,32 @@
     </div>
 
     <script>
-      //const $texts2 = document.getElementsByClassName('text2');
+      const $texts2 = document.getElementsByClassName('text2');
+      //$text2는 htmlcollection
+      console.log($texts2);
 
-      //   // 스프레드 문법(...)을 사용하여 일반 배열로 변환
-      // const textArray = [...$texts2];
-      // console.log(textArray);
-
-      //   textArray.forEach((item) => {
-      //     item.classList.remove('text2');
-      //   });
-
-      //   console.log($texts2.length); // 0, 실시간으로 비어있음
-      //   console.log(textArray.length);
+      // 스프레드 문법(...)을 사용하여 일반 배열로 변환
+      const textArray = [...$texts2];
+      
+      console.log(textArray);
+      /**
+       *const arrayText2 = Array.from($texts2);
+      console.log(arrayText2);
+      이렇게 해도 위의 결과와 같이 배열로 나옴
+      */
+      console.log(textArray.length);
+      
+      textArray.forEach((item) => {
+        item.classList.remove('text2'); // class 제거
+      });
+      /**
+       *<p>첫 번째</p>
+        <p>두 번째</p>
+        <p>세 번째</p> 
+      */
+      // getElementsByClassName은 htmlcollection이라 Dom의 변화를 실시간으로 따라감
+      console.log($texts2.length); // 0, 실시간으로 비어있음
+      console.log(textArray.length);
     </script>
   </body>
 </html>

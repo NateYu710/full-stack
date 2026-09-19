@@ -39,7 +39,7 @@
                     // e.target.value: 이벤트를 일으킨 장본인(e.target)이 가지고 있는 최신 값(value)
                     onChange={e => setUsername(e.target.value)} // 입력값이 바뀔 때 실행되는 이벤트
                     />
-                    
+                    <br/>
                     <input type="email"
                     placeholder="이메일"
                     value={email}
@@ -89,7 +89,7 @@
                     value={username}
                     onChange={handleChange} 
                     />
-                    
+                    <br/>
                     <input 
                     type="email"
                     name="email"
@@ -102,12 +102,33 @@
             )
         }
 
+        function CustomButton({onClick, children}){ // 재사용할 컴포넌트
+            // 컴포넌트는 항상 대문자
+            
+        // console.log(props);
+            
+            return(
+                <>
+                    <button style={{backgroundColor: 'black', 
+                    color: 'white', border: 'none'}} onClick={onClick}>{children}</button>
+                    {/*첫번째 온클릭은 이벤트 온클릭 두번째 온클릭은 부모로 부터 받은 함수*/}
+                </>
+            )
+        }
+
         function App() {
+            const showWelcomeMessage = () => {
+                alert('우리 사이트에 오신 것을 환영합니다.');
+            }
+            
+            
             return (
                 <>
                     <SignupFormBasic/>
                     <hr/>
                     <SignupFormAdvanced/>
+                    <hr/>
+                    <CustomButton onClick={showWelcomeMessage}><strong>환영메시지</strong></CustomButton>
                 </>
             )
         }

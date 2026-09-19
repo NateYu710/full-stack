@@ -239,21 +239,36 @@
           const $input = document.getElementById('search-input');
           const $newInput = $input.value.trim().toLowerCase();
           const $products = document.querySelectorAll('.product');
+          const $result = document.querySelector('.result')
 
-          let count = 0;
-          for (const $product of $products) {
-            if ($product.textContent.includes($newInput)) {
-              $product.classList.add('matched');
-              count++;
-            } else if ($newInput===''){
-                $product.classList.remove('matched');
-            } else {
-              $product.classList.remove('matched');
+          let count = 0
+          
+          
+          if ($newInput === '') {
+            for (const product of $products) {
+              product.classList.remove('matched')
+              
+              $result.textContent = '검색 결과가 여기에 표시됩니다.'
+              return;
             }
+          }        
+      
+          
+          
+          for (const product of $products) {
+            if (product.textContent.includes($newInput)) {
+              product.classList.add('matched')
+              count ++
+
+            }
+             else {
+              product.classList.remove('matched')
+            };
           }
-          const $searchResult = document.getElementById('search-result');
-          $searchResult.textContent = count;
+          $result.textContent = `일치하는 상품의 갯수는 ${count}개 입니다.`  
+
         }
+      
         
       </script>
     </section>
@@ -291,6 +306,22 @@
 
       <script>
         function showRelations() {
+          const $currentStep = document.querySelector('.current')
+          const $parrentStep = $currentStep.parentElement
+          // $parrentStep.style.borderColor = 'blue'
+          $currentStep.parentElement.style.borderColor = 'blue';
+          
+        const $firstSiblingStep = $parrentStep.firstElementChild;
+        const $lastSiblingStep = $parrentStep.lastElementChild;
+         
+        $firstSiblingStep.classList.add('edge');
+        $lastSiblingStep.classList.add('edge');
+
+        const $result = document.getElementById('traversal-result')
+        const $previousStep = $currentStep.previousElementSibling.textContent
+        const $nextStep = $currentStep.nextElementSibling.textContent
+
+        $result.textContent = `이전 단계: ${$previousStep}, 다음 단계: ${$nextStep}`
           
         }
       </script>
@@ -327,12 +358,28 @@
       </ul>
 
       <script>
+        
         function addTodo() {
-          // 코드 작성
+          const $input = document.getElementById('todo-input')
+          const $toDo = document.getElementById('todo-list')
+          const $newLi = document.createElement('li')
+          if ($input.value.trim() === '') {
+            return;
+          } else {
+              $newLi.textContent = $input.value;
+              $toDo.appendChild($newLi)
+              $input.value = '' 
+          }
         }
 
         function removeLastTodo() {
-          // 코드 작성
+          
+          const $toDo = document.getElementById('todo-list')
+          if (!$toDo.lastElementChild) {
+            return ;
+          } else {
+              $toDo.lastElementChild.remove();
+          }
         }
       </script>
     </section>
@@ -463,7 +510,7 @@
 
       <script>
         function applyProfile() {
-          // 코드 작성
+          
         }
 
         function toggleDarkMode() {
