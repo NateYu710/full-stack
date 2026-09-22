@@ -196,7 +196,13 @@
             //         query가 바뀔 때만 PRODUCTS를 filter하고, 상품 이름에 query가 포함되는지 확인하세요.
             //         대소문자와 앞뒤 공백은 무시하세요.
             //         계산될 때 Console에 '상품 목록 다시 계산'을 출력하세요.
-            const filteredProducts = PRODUCTS;
+            const filteredProducts = useMemo(() => {
+                console.log('상품 목록 다시 계산')
+             
+
+                return PRODUCTS.filter(product => product.name.toLowerCase().includes(query.trim().toLowerCase()));   
+                
+                }, [query]);
 
             return (
                 <section className="problem">
