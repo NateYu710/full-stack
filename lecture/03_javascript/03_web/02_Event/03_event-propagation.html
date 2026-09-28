@@ -1,118 +1,125 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>이벤트 전파와 위임</title>
     <style>
-        ul { background: lightgray; padding: 20px; }
-        li { background: lightblue; margin: 10px; }
-        .highlight { font-weight: bolder; text-decoration: underline; color: crimson; }
+      ul {
+        background: lightgray;
+        padding: 20px;
+      }
+      li {
+        background: lightblue;
+        margin: 10px;
+      }
+      .highlight {
+        font-weight: bolder;
+        text-decoration: underline;
+        color: crimson;
+      }
     </style>
-</head>
-<body>
-<h1>이벤트 전파(Propagation)와 위임(Delegation)</h1>
+  </head>
+  <body>
+    <h1>이벤트 전파(Propagation)와 위임(Delegation)</h1>
 
-<hr>
+    <hr />
 
-<h3>1. 이벤트 버블링: 연못의 파문처럼!</h3>
-<pre>
+    <h3>1. 이벤트 버블링: 연못의 파문처럼!</h3>
+    <pre>
     하위 요소에서 발생한 이벤트는, 그 파문이 부모 요소를 따라 최상위까지 올라가는 '버블링' 현상을 일으킵니다.
     따라서 부모 요소에 달아둔 이벤트 리스너는, 자식 요소에서 발생한 이벤트에도 '반응'할 수 있습니다.
     </pre>
 
-<ul id="parent"> 부모 (ul)
-    <li id="child"> 자식 (li) </li>
-</ul>
+    <ul id="parent">
+      부모 (ul)
+      <li id="child">자식 (li)</li>
+    </ul>
 
-<script>
-    const $parent = document.getElementById('parent');
-    const $child = document.getElementById('child');
+    <script>
+      const $parent = document.getElementById('parent');
+      const $child = document.getElementById('child');
 
-    $parent.addEventListener('click', (e) => {
+      $parent.addEventListener('click', (e) => {
         alert('부모(ul)가 클릭을 감지했습니다.');
         console.log('---부모 핸들러---');
         console.log('e.target:', e.target); // 이벤트가 실제로 시작된 요소
-        
+
         // 이벤트 핸들러가 등록된 요소
         console.log('e.currentTarget:', e.currentTarget);
-    });
+      });
 
-     $child.addEventListener('click', (e) => {
-         alert('자식(li)이 클릭되었습니다!');
-     })
-</script> 
+      $child.addEventListener('click', (e) => {
+        alert('자식(li)이 클릭되었습니다!');
+      });
+    </script>
 
+    <hr />
 
-<hr>
-
-<h3>2. 이벤트 위임: 똑똑하게 일 처리하기</h3>
-<pre>
+    <h3>2. 이벤트 위임: 똑똑하게 일 처리하기</h3>
+    <pre>
     이벤트 버블링을 활용하면, 여러 자식 요소에 각각 이벤트를 달 필요 없이,
     부모 요소에 이벤트 핸들러를 단 하나만 등록하여 모든 자식의 이벤트를 처리할 수 있습니다.
     이것을 '이벤트 위임'이라고 하며, 코드가 훨씬 효율적이고 유연해집니다.
     </pre>
 
-<ul id="drink-list">
-    <li>커피</li>
-    <li>콜라</li>
-    <li>우유</li>
-</ul>
-<button id="add-btn">음료 추가</button>
+    <ul id="drink-list">
+      <li>커피</li>
+      <li>콜라</li>
+      <li>우유</li>
+    </ul>
+    <button id="add-btn">음료 추가</button>
 
-<script>
-    //  이벤트 위임 적용!
-    // 개별로 하나씩 이벤트를 등록하는 방식
-    // const $items = document.querySelectorAll('#drink-list li');
-    // /** #drink-list li
-    //  * drink-list라는 id를 가진 요소 안의 모든 li를 선택하는 후손 선택자
-    //  * */
-    // console.log($items);
-    // $items.forEach(($item) => {
-    //     // 각각의 요소에 클릭 이벤트를 하나씩 등록
-    //     $item.addEventListener('click', () => {
-    //         $item.classList.toggle('highlight');
-    //         // hightlight class를 추가
-    //     });
-    // });
+    <script>
+      //  이벤트 위임 적용!
+      // 개별로 하나씩 이벤트를 등록하는 방식
+      // const $items = document.querySelectorAll('#drink-list li');
+      // /** #drink-list li
+      //  * drink-list라는 id를 가진 요소 안의 모든 li를 선택하는 후손 선택자
+      //  * */
+      // console.log($items);
+      // $items.forEach(($item) => {
+      //     // 각각의 요소에 클릭 이벤트를 하나씩 등록
+      //     $item.addEventListener('click', () => {
+      //         $item.classList.toggle('highlight');
+      //         // hightlight class를 추가
+      //     });
+      // });
 
-     const $drinkList = document.getElementById('drink-list');
-     const $addBtn = document.getElementById('add-btn');
+      const $drinkList = document.getElementById('drink-list');
+      const $addBtn = document.getElementById('add-btn');
 
-    function highlight(element) {
+      function highlight(element) {
         element.classList.toggle('highlight');
-    }
-    // 이벤트 위임 활용
-    // 각 li가 아닌, 부모 ul에 이벤트 핸들러를 딱 한 번 등록
-    $drinkList.addEventListener('click', (e) => {
+      }
+      // 이벤트 위임 활용
+      // 각 li가 아닌, 부모 ul에 이벤트 핸들러를 딱 한 번 등록
+      $drinkList.addEventListener('click', (e) => {
         // closest : 가장 가까운 전달된 요소(li)를 찾는다. 만약 찾지 못하면 null
         const $item = e.target.closest('li');
-        // 실제로 클릭한 요소(e.target)에서 시작해서, 
+        // 실제로 클릭한 요소(e.target)에서 시작해서,
         // 가장 가까운 li 요소를 찾아 $item에 저장하는 코드
-        
-        
-        if(!$item) return;
-        if(!$drinkList.contains($item)) return;
+
+        if (!$item) return;
+        if (!$drinkList.contains($item)) return;
         // 찾은 li가 내가 원하는 $drinkList 안에 있는 li인지 확인하는 안전장치
         highlight($item);
         console.log('클릭된 요소', e.target);
-        
-        
+
         // if (e.target.matches('li')) {
         //     // matches: 실제로 클릭한 요소가 뭔지 확인
         //     highlight(e.target);
         // };
         // -- 이부분을 주석처리해야 e.target.closest이게 적용됨
-    });
+      });
 
-    // // 나중에 동적으로 추가되는 자식요소에도 이벤트 핸들러가 자동으로 등록된다
-    $addBtn.addEventListener('click', () => {
+      // // 나중에 동적으로 추가되는 자식요소에도 이벤트 핸들러가 자동으로 등록된다
+      $addBtn.addEventListener('click', () => {
         const $newLi = document.createElement('li');
 
         $newLi.textContent = '사이다';
 
         $drinkList.appendChild($newLi);
-    });
-</script>
-</body>
+      });
+    </script>
+  </body>
 </html>
-

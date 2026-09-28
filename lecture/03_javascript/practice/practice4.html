@@ -508,10 +508,27 @@
           const intorduceValue = $introduce.value;
           const $message = document.querySelector('#profile-message');
           $message.textContent = intorduceValue;
+          const $colorInput = document.querySelector('#profile-color-input');
+          const $profileCard = document.querySelector('#profile-card');
+          $profileCard.style.borderColor = $colorInput.value;
+
+          const $size = document.querySelector('#profile-size-select');
+          if ($size.value === 'compact') {
+            $profileCard.classList.add('compact');
+          } else {
+            $profileCard.classList.remove('compact');
+          }
         }
 
         function toggleDarkMode() {
-          // 코드 작성
+          const $button = document.getElementById('dark-mode-button');
+          const $profileCard = document.querySelector('#profile-card');
+          $profileCard.classList.toggle('dark');
+          if ($profileCard.classList.contains('dark')) {
+            $button.textContent = '다크 모드 끄기';
+          } else {
+            $button.textContent = '다크 모드 켜기';
+          }
         }
       </script>
     </section>

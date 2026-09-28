@@ -105,19 +105,18 @@
           return;
         }
 
-        //         // 관심사 유효성 검사
-        //         //const checkedCount =
-        //         //    Array.from($hobbies)
-        //         //    .filter((hobby)) => hobby.checked)
-        //         //    .length;
+        // 관심사 유효성 검사
+        const checkedCount = Array.from($hobbies).filter(
+          (hobby) => hobby.checked,
+        ).length;
 
-        let checkedCount = 0;
+        // let checkedCount = 0;
 
-        Array.from($hobbies).forEach((hobby) => {
-          if (hobby.checked) {
-            checkedCount++;
-          }
-        });
+        // Array.from($hobbies).forEach((hobby) => {
+        //   if (hobby.checked) {
+        //     checkedCount++;
+        //   }
+        // });
 
         if (checkedCount < 2) {
           e.preventDefault();
