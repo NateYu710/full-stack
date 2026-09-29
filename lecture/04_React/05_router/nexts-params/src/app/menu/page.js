@@ -17,13 +17,13 @@ export default function Menu() {
     }, []);
 
     const onChangeHandler = (e) => {
-        setSearchValue(e.target.value)
+        setSearchValue(e.target.value);
     }
 
     const onClickHandler = () => {
         router.push(`/menu/search?menuName=${searchValue}`)
     }
-    
+
     return (
         <>
             <h1>메뉴 페이지 입니다</h1>
@@ -34,9 +34,7 @@ export default function Menu() {
                     value={searchValue}
                     onChange={onChangeHandler}
                 />
-
-                <button onClick ={onClickHandler}>검색</button>
-                
+                <button onClick={onClickHandler}>검색</button>
             </div>
             <div>
                 {menuList.map(menu => <MenuItem key={menu.menuCode} menu={menu}/>)}

@@ -1,0 +1,201 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f3f6f1;
+  color: #20352b;
+  font-family: Arial, 'Malgun Gothic', sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 20px 6%;
+  background: white;
+  border-bottom: 1px solid #dce5dd;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  gap: 16px;
+}
+
+.container {
+  width: min(900px, 92%);
+  margin: 40px auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  display: block;
+  padding: 24px;
+  background: white;
+  border: 1px solid #dce5dd;
+  border-radius: 14px;
+}
+
+a.card:hover {
+  border-color: #246447;
+  background: #edf5e7;
+}
+
+.form {
+  display: grid;
+  gap: 16px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+}
+
+input,
+button {
+  padding: 12px;
+  border: 1px solid #bdccbf;
+  border-radius: 8px;
+  font: inherit;
+}
+
+button {
+  background: #246447;
+  color: white;
+  cursor: pointer;
+}
+
+.error {
+  color: #b42318;
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #246447;
+}
+
+.video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 12px;
+}
+
+/* 부위 목록 전체: 세로 배치 */
+.part-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  width: 100%;
+  max-width: 384px;
+
+  /* ol의 기본 번호와 들여쓰기를 제거 */
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0;
+}
+
+/* 목록 한 줄 */
+.part-item {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* 번호·부위명·화살표를 가로로 배치 */
+.part-card {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  width: 100%;
+  min-height: 59px;
+  padding: 12px 15px;
+
+  background: #ffffff;
+  color: #172b29;
+  border: 1px solid #e1e8e4;
+  border-radius: 11px;
+  text-decoration: none;
+
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    color 0.2s;
+}
+
+/* 01, 02 등이 들어가는 작은 사각형 */
+.part-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* 공간이 부족해도 번호 상자가 줄어들지 않도록 설정 */
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+
+  background: #f0f4ed;
+  color: #65776d;
+  border-radius: 7px;
+
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+/* 운동 부위 이름 */
+.part-name {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* 남은 공간을 왼쪽 여백으로 채워 오른쪽 끝으로 이동 */
+.part-arrow {
+  margin-left: auto;
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* 마우스를 올리거나 키보드로 선택했을 때 */
+.part-card:hover,
+.part-card:focus-visible {
+  background: #176449;
+  border-color: #176449;
+  color: #ffffff;
+}
+
+.part-card:hover .part-number,
+.part-card:focus-visible .part-number {
+  background: #ffffff20;
+  color: #dafa94;
+}
+
+/* 키보드로 선택한 위치 표시 */
+.part-card:focus-visible {
+  outline: 2px solid #176449;
+  outline-offset: 3px;
+}
