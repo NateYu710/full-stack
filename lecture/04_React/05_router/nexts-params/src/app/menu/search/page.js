@@ -1,40 +1,40 @@
 'use client';
 
-import MenuItem from "@/item/MenuItem";
-import { searchMenu } from "@/lib/MenuAPI";
-import { useSearchParams } from "next/navigation";
-import { useState, useEffect, Suspense } from "react";
+import MenuItem from '@/item/MenuItem';
+import { searchMenu } from '@/lib/MenuAPI';
+import { useSearchParams } from 'next/navigation';
+import { useState, useEffect, Suspense } from 'react';
 
 function MenuSearchResultContent() {
+  const [menuList, setMenuList] = useState([]);
+  // 쿼리 스트링 객체 가져오기
+  const searchParam = useSearchParams();
+  // URL 뒤에 붙어 있는 쿼리 스트링 값을 읽을 때 사용
 
-    const [menuList, setMenuList] = useState([]);
+  // '?menuName=열무' 에서 '열무' 라는 값 추출
+  const menuName = searchParam.get('menuName');
+  console.log(menuName); //열무라고 검색하면 '열무'
 
-    // 쿼리 스트링 객체 가져오기
-    const searchParam = useSearchParams();
+  useEffect(() => {
+    setMenuList(searchMenu(menuName)); // @/lib/MenuAPI
+  }, [menuName]);
 
-    // '?menuName=열무'에서 '열무'라는 값 추출
-    const menuName = searchParam.get('menuName')
-    console.log(menuName);
-
-    useEffect(() => {
-        setMenuList(searchMenu(menuName));
-    }, [menuName]);
-
-
-    return (
-        <>
-            <h1>검색결과!!!</h1>
-            <div>
-                {menuList.map(menu => <MenuItem key={menu.menuCode} menu={menu}/>)}
-            </div>
-        </>
-    )
+  return (
+    <>
+      <h1>검색 결과!</h1>
+      <div>
+        {menuList.map((menu) => (
+          <MenuItem key={menu.menuCode} menu={menu} /> //'@/item/MenuItem';
+        ))}
+      </div>
+    </>
+  );
 }
 
 export default function MenuSearchResult() {
-    return (
-        <Suspense fallback={<h1>검색 조건을 확인하는 중입니다.</h1>}>
-            <MenuSearchResultContent/>
-        </Suspense>
-    )
+  return (
+    <Suspense fallback={<h1>검색 조건을 확인하는 중입니다</h1>}>
+      <MenuSearchResultContent />
+    </Suspense>
+  );
 }

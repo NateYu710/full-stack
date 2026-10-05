@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/@babel/standalone/babel.min.js"
+    ></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const { useState, useEffect } = React;
+
+      function Timer() {
+        const [number, setNumber] = useState(0);
+        const [isRunning, setIsRunning] = useState(false);
+
+        useEffect(() => {
+          if (isRunning) {
+            const timerId = setInterval(() => {
+              setNumber((prev) => prev + 1);
+            }, 1000);
+            return () => {
+              clearInterval(timerId);
+            };
+          }
+        }, [isRunning]);
+
+        return (
+          <>
+            <h1>시간:{number}</h1>
+
+            <button onClick={() => setIsRunning(true)}>시작</button>
+            <button onClick={() => setIsRunning(false)}>정지</button>
+            <button onClick={() => setNumber(0)}>초기화</button>
+          </>
+        );
+      }
+
+      function App() {
+        return (
+          <>
+            <Timer />
+          </>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    </script>
+  </body>
+</html>

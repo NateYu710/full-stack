@@ -4,15 +4,281 @@
       "id": "1",
       "name": "벤치프레스",
       "part": "가슴",
-      "description": "가슴을 중심으로 수행하는 프레스 운동입니다.",
+      "description": "벤치에 누워 바벨을 가슴 쪽으로 내렸다가 밀어 올리며 가슴과 삼두근, 어깨 앞쪽을 강화하는 운동.",
       "youtubeId": "ub936ioAT9o"
     },
     {
       "id": "2",
+      "name": "데드리프트",
+      "part": "등",
+      "description": "바닥의 바벨을 들어 올리며 둔근과 허벅지 뒤쪽, 척추 주변 근육 등 몸의 뒷부분을 함께 사용하는 전신 운동.",
+      "youtubeId": "dldHg5U3SO4"
+    },
+    {
+      "id": "3",
+      "name": "스쿼트",
+      "part": "하체",
+      "description": "바벨을 어깨 뒤에 얹고 앉았다 일어나며 허벅지 앞쪽과 둔근을 중심으로 하체를 강화하는 운동.",
+      "youtubeId": "VEwqIDK2DCM"
+    },
+    {
+      "id": "4",
+      "name": "오버헤드프레스",
+      "part": "어깨",
+      "description": "바벨이나 덤벨을 어깨 높이에서 머리 위로 밀어 올리며 어깨와 삼두근을 강화하는 운동.",
+      "youtubeId": "rYYIztCl2Uc"
+    },
+    {
+      "id": "5",
+      "name": "라잉트라이셉스 익스텐션",
+      "part": "팔",
+      "description": "벤치에 누워 바벨이나 덤벨을 머리 쪽으로 내렸다가 팔꿈치를 펴며 삼두근을 강화하는 운동.",
+      "youtubeId": "Vtfuh3kHpm8"
+    },
+    {
+      "id": "6",
+      "name": "인클라인 덤벨프레스",
+      "part": "가슴",
+      "description": "상체를 세운 경사 벤치에 누워 덤벨을 밀어 올리며 가슴 위쪽을 중심으로 강화하는 운동.",
+      "youtubeId": "YzpUmUi5R10"
+    },
+    {
+      "id": "7",
+      "name": "체스트프레스",
+      "part": "가슴",
+      "description": "머신에 앉아 손잡이를 앞으로 밀며 가슴과 삼두근을 강화하는 운동.",
+      "youtubeId": "eLbsMnfoCq8"
+    },
+    {
+      "id": "8",
+      "name": "펙덱플라이",
+      "part": "가슴",
+      "description": "머신에 앉아 양팔을 가슴 앞으로 모으며 가슴 근육을 집중적으로 사용하는 운동.",
+      "youtubeId": "HdlYMpVdrZA"
+    },
+    {
+      "id": "9",
+      "name": "푸시업",
+      "part": "가슴",
+      "description": "바닥에 손을 짚고 몸을 내렸다가 밀어 올리며 가슴과 삼두근, 몸통 근육을 함께 사용하는 운동.",
+      "youtubeId": "tLP4k0JKI8Q"
+    },
+    {
+      "id": "10",
+      "name": "풀업",
+      "part": "등",
+      "description": "철봉에 매달려 몸을 끌어 올리며 광배근과 등 위쪽, 이두근을 강화하는 운동.",
+      "youtubeId": "3dDx5hqnuk4"
+    },
+    {
+      "id": "11",
       "name": "랫풀다운",
       "part": "등",
-      "description": "등을 중심으로 수행하는 당기기 운동입니다.",
+      "description": "머신에 앉아 머리 위의 바를 가슴 위쪽으로 당기며 광배근을 중심으로 등을 강화하는 운동.",
+      "youtubeId": "QOibbsQGxT0"
+    },
+    {
+      "id": "12",
+      "name": "시티드 케이블로우",
+      "part": "등",
+      "description": "앉은 자세에서 케이블 손잡이를 몸통 쪽으로 당기며 광배근과 등 중앙 근육을 강화하는 운동.",
+      "youtubeId": "9wvoLs_A9Ig"
+    },
+    {
+      "id": "13",
+      "name": "원암 덤벨로우",
+      "part": "등",
+      "description": "한 손으로 몸을 지지하고 반대 손의 덤벨을 옆구리 쪽으로 당기며 한쪽 등 근육을 사용하는 운동.",
+      "youtubeId": "hH6J-1c6pb4"
+    },
+    {
+      "id": "14",
+      "name": "레그프레스",
+      "part": "하체",
+      "description": "머신에 앉아 발판을 밀며 허벅지 앞쪽과 둔근을 강화하는 운동.",
+      "youtubeId": "OTAhcmLd0Fc"
+    },
+    {
+      "id": "15",
+      "name": "불가리안 스플릿 스쿼트",
+      "part": "하체",
+      "description": "뒷발을 벤치에 올리고 앞다리를 굽혔다 펴며 허벅지와 둔근을 한쪽씩 강화하는 운동.",
+      "youtubeId": "czbI0aFTXO8"
+    },
+    {
+      "id": "16",
+      "name": "레그익스텐션",
+      "part": "하체",
+      "description": "머신에 앉아 무릎을 펴며 허벅지 앞쪽의 대퇴사두근을 집중적으로 강화하는 운동.",
+      "youtubeId": "gmFaBcpfPm8"
+    },
+    {
+      "id": "17",
+      "name": "레그컬",
+      "part": "하체",
+      "description": "머신에서 무릎을 굽히며 허벅지 뒤쪽의 햄스트링을 집중적으로 강화하는 운동.",
+      "youtubeId": "CTVF6Z_wvT4"
+    },
+    {
+      "id": "18",
+      "name": "덤벨 숄더프레스",
+      "part": "어깨",
+      "description": "양손의 덤벨을 어깨 높이에서 위로 밀어 올리며 어깨와 삼두근을 강화하는 운동.",
+      "youtubeId": "0-4lVAvJu3E"
+    },
+    {
+      "id": "19",
+      "name": "사이드 레터럴 레이즈",
+      "part": "어깨",
+      "description": "덤벨을 몸의 양옆으로 들어 올리며 어깨 옆쪽의 삼각근을 집중적으로 강화하는 운동.",
+      "youtubeId": "jN4R9e1CDrU"
+    },
+    {
+      "id": "20",
+      "name": "리버스 펙덱플라이",
+      "part": "어깨",
+      "description": "머신의 패드를 가슴으로 향하고 앉아 양팔을 뒤로 벌리며 어깨 뒤쪽과 등 위쪽을 강화하는 운동.",
+      "youtubeId": "nLySXNJaWz8"
+    },
+    {
+      "id": "21",
+      "name": "페이스풀",
+      "part": "어깨",
+      "description": "케이블 로프를 얼굴 쪽으로 당기며 어깨 뒤쪽과 등 위쪽, 어깨 회전에 관여하는 근육을 사용하는 운동.",
+      "youtubeId": "weyxYZEE5iA"
+    },
+    {
+      "id": "22",
+      "name": "바벨컬",
+      "part": "팔",
+      "description": "바벨을 잡고 팔꿈치를 굽혀 들어 올리며 팔 앞쪽의 이두근을 강화하는 운동.",
+      "youtubeId": "-GvEa1RLANY"
+    },
+    {
+      "id": "23",
+      "name": "해머컬",
+      "part": "팔",
+      "description": "손바닥이 서로 마주보도록 덤벨을 잡고 들어 올리며 상완근과 상완요골근, 이두근을 강화하는 운동.",
+      "youtubeId": "eyyesvSOg4A"
+    },
+    {
+      "id": "24",
+      "name": "케이블 푸시다운",
+      "part": "팔",
+      "description": "케이블 손잡이를 잡고 팔꿈치를 펴서 아래로 밀며 팔 뒤쪽의 삼두근을 강화하는 운동.",
+      "youtubeId": "tMk3aoGXsMY"
+    },
+    {
+      "id": "25",
+      "name": "오버헤드 트라이셉스 익스텐션",
+      "part": "팔",
+      "description": "덤벨을 머리 위로 든 상태에서 팔꿈치를 굽혔다 펴며 삼두근을 강화하는 운동.",
+      "youtubeId": "V8YlItAMIsU"
+    },
+    {
+      "id": "26",
+      "name": "덤벨 벤치프레스",
+      "part": "가슴",
+      "description": "벤치에 누워 양손의 덤벨을 밀어 올리며 가슴과 삼두근, 어깨 앞쪽을 강화하는 운동.",
+      "youtubeId": "CMc5GJVFG88"
+    },
+    {
+      "id": "27",
+      "name": "케이블 크로스오버",
+      "part": "가슴",
+      "description": "양쪽 케이블 손잡이를 몸 앞으로 모으며 가슴 근육을 집중적으로 사용하는 운동.",
+      "youtubeId": "_s9DBMZ67eo"
+    },
+    {
+      "id": "28",
+      "name": "딥스",
+      "part": "가슴",
+      "description": "평행봉에서 몸을 내렸다가 밀어 올리며 가슴과 삼두근을 강화하는 운동.",
+      "youtubeId": "2aLlEEvEK7M"
+    },
+    {
+      "id": "29",
+      "name": "바벨로우",
+      "part": "등",
+      "description": "상체를 숙인 자세에서 바벨을 몸통 쪽으로 당기며 광배근과 등 중앙 근육을 강화하는 운동.",
+      "youtubeId": "0vn3a-TelK0"
+    },
+    {
+      "id": "30",
+      "name": "체스트 서포티드 로우",
+      "part": "등",
+      "description": "벤치나 머신 패드에 가슴을 지지하고 중량을 몸통 쪽으로 당기며 등 근육을 강화하는 운동.",
+      "youtubeId": "zq6EnZzGFRM"
+    },
+    {
+      "id": "31",
+      "name": "스트레이트암 풀다운",
+      "part": "등",
+      "description": "팔꿈치를 살짝 굽힌 상태로 유지하며 케이블 바를 허벅지 쪽으로 내려 광배근을 사용하는 운동.",
+      "youtubeId": "Fc9ynrsW6vM"
+    },
+    {
+      "id": "32",
+      "name": "핵스쿼트",
+      "part": "하체",
+      "description": "머신 패드에 등을 지지하고 앉았다 일어나며 허벅지 앞쪽과 둔근을 강화하는 운동.",
+      "youtubeId": "kSY3PGOD0OY"
+    },
+    {
+      "id": "33",
+      "name": "루마니안 데드리프트",
+      "part": "하체",
+      "description": "무릎을 살짝 굽히고 엉덩이를 뒤로 보내며 중량을 내렸다가 일어나 햄스트링과 둔근을 강화하는 운동.",
+      "youtubeId": "XBjaHAVmCL8"
+    },
+    {
+      "id": "34",
+      "name": "스탠딩 카프레이즈",
+      "part": "하체",
+      "description": "서 있는 자세에서 뒤꿈치를 들었다 내리며 종아리 근육을 강화하는 운동.",
+      "youtubeId": "ldmGt7BnXqE"
+    },
+    {
+      "id": "35",
+      "name": "프론트 레이즈",
+      "part": "어깨",
+      "description": "덤벨을 몸 앞으로 들어 올리며 어깨 앞쪽의 삼각근을 집중적으로 강화하는 운동.",
       "youtubeId": ""
+    },
+    {
+      "id": "36",
+      "name": "케이블 레터럴 레이즈",
+      "part": "어깨",
+      "description": "한 손으로 케이블 손잡이를 잡고 팔을 옆으로 들어 올리며 어깨 옆쪽을 강화하는 운동.",
+      "youtubeId": "-PiEsN2K0KQ"
+    },
+    {
+      "id": "37",
+      "name": "벤트오버 레터럴 레이즈",
+      "part": "어깨",
+      "description": "상체를 숙인 자세에서 덤벨을 양옆으로 벌리며 어깨 뒤쪽을 강화하는 운동.",
+      "youtubeId": "vDyffgJ66ak"
+    },
+    {
+      "id": "38",
+      "name": "프리처컬",
+      "part": "팔",
+      "description": "패드에 위팔을 지지하고 팔꿈치를 굽혀 중량을 들어 올리며 이두근을 강화하는 운동.",
+      "youtubeId": "JgNDy69X3ck"
+    },
+    {
+      "id": "39",
+      "name": "인클라인 덤벨컬",
+      "part": "팔",
+      "description": "경사 벤치에 등을 기대고 팔을 아래로 늘어뜨린 상태에서 덤벨을 들어 올리며 이두근을 강화하는 운동.",
+      "youtubeId": "HmcqRly16wk"
+    },
+    {
+      "id": "40",
+      "name": "트라이셉스 킥백",
+      "part": "팔",
+      "description": "상체를 숙이고 위팔을 고정한 상태에서 팔꿈치를 펴며 삼두근을 강화하는 운동.",
+      "youtubeId": "oRGG_mCI_aw"
     }
   ]
 }
