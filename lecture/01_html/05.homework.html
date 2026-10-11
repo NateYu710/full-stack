@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>homework</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap"
+      rel="stylesheet"X
+    />
+    <style>
+      h1 {
+        text-align: center;
+        font-family: 'East Sea Dokdo', sans-serif;
+        font-size: 60px;
+      }
+
+      header > p {
+        text-align: center;
+      }
+
+      .button {
+        color: white;
+        display: inline-block;
+        background-color: blue;
+        text-decoration: none;
+        border-radius: 10px;
+        padding: 10px 30px;
+      }
+      .button:hover {
+        background-color: rgb(92, 109, 242);
+        color: whitesmoke;
+        transform: translateX(7px);
+        box-shadow: 0 5px 10px rgba(0, 94, 94, 0.589);
+      }
+      .button:active {
+        transform: translateX(2px);
+      }
+
+      .flex-container {
+        display: flex;
+        justify-content: center;
+        height: 70px;
+        align-items: center;
+        flex-wrap: wrap;
+        list-style: none;
+        gap: 10px;
+      }
+
+      section {
+        background-color: rgb(218, 227, 207);
+        padding: 30px;
+        margin: 20px;
+        border-radius: 15px;
+      }
+      footer {
+        background-color: rgb(218, 227, 207);
+        padding: 20px;
+        margin: 20px;
+        border-radius: 15px;
+      }
+      section h2 {
+        border-bottom: 2px dotted black;
+      }
+      .food {
+        color: rgb(3, 3, 150);
+        display: inline-block;
+        font-weight: bold;
+        background-color: rgb(229, 229, 241);
+        text-decoration: none;
+        border-radius: 30px;
+        padding: 10px 10px;
+      }
+      .eating {
+        display: flex;
+        justify-content: flex-start;
+        gap: 20px;
+        padding-left: 0;
+      }
+      .pork {
+        display: block;
+        margin: 0 auto;
+      }
+      .comment {
+        text-align: center;
+        font-size: 20px;
+      }
+
+      table {
+        margin: 0 auto;
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 15px;
+      }
+
+      caption {
+        font-weight: bold;
+        margin-bottom: 4px;
+      }
+
+      th,
+      td {
+        border: 1px solid #999;
+        padding: 2px 4px;
+      }
+      th {
+        font-weight: bold;
+      }
+
+      thead {
+        text-align: center;
+        font-weight: bold;
+        background-color: blueviolet;
+        color: white;
+      }
+
+      tbody {
+        text-align: center;
+        background-color: whitesmoke;
+      }
+      footer {
+        text-align: center;
+      }
+      .available {
+        color: green;
+      }
+      .soldout {
+        color: red;
+      }
+      fieldset {
+        background-color: white;
+        border: 5px double;
+      }
+      input[type='text'] {
+        display: block;
+        width: 100%;
+        height: 30px;
+        border-radius: 10px;
+        border: solid 2px;
+      }
+      select[id='user-cuisine'] {
+        display: block;
+        width: 100%;
+        height: 30px;
+        border-radius: 10px;
+        border: solid 2px;
+      }
+      textarea {
+        width: 100%;
+        height: 100px;
+      }
+      button[type='submit'] {
+        background-color: rgb(239, 126, 126);
+        border-radius: 10px;
+        color: white;
+      }
+      button[type='reset'] {
+        background-color: grey;
+        border-radius: 10px;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>Ohgiraffers Menu Manager</h1>
+      <p>메뉴를 등록하고, 조회하고, 관리할 수 있는 메뉴 관리 시스템입니다.</p>
+      <ul class="flex-container">
+        <li><a href="#intro" class="button int">서비스 소개</a></li>
+        <li><a href="#category" class="button cat">카테고리</a></li>
+        <li><a href="#list" class="button li">메뉴 목록</a></li>
+        <li><a href="#add" class="button ad">메뉴 등록</a></li>
+      </ul>
+    </header>
+    <hr />
+    <main>
+      <section id="intro">
+        <h2>서비스 소개</h2>
+        <p>
+          <strong>ohgiraffers Menu Manager</strong>는 음식점의 메뉴 정보를
+          관리하기위한 페이지입니다. <br />
+          메뉴명, 가격, 카테고리, 판매 상태를 한눈에 확인할 수 있습니다.
+          <br /><br />
+          이번 CSS 과제에서는 <mark>화면의 스타일</mark>를 만드는 것에
+          집중합니다.
+        </p>
+      </section>
+      <hr />
+      <section id="category">
+        <h2>카테고리 목록</h2>
+        <ul class="eating">
+          <li class="food k">한식</li>
+          <li class="food c">중식</li>
+          <li class="food j">일식</li>
+          <li class="food w">양식</li>
+          <li class="food de">디저트</li>
+          <li class="food dr">음료</li>
+        </ul>
+      </section>
+      <hr />
+      <section id="menu">
+        <h2>대표메뉴</h2>
+        <figure>
+          <img
+            class="pork"
+            src="sample/image/제육볶음.jpg"
+            alt="음식사진"
+            width="400"
+            height="300"
+          />
+          <figcaption class="comment">
+            오늘의 대표 메뉴 이미지입니다.
+          </figcaption>
+        </figure>
+      </section>
+      <hr />
+      <section id="list">
+        <h2>메뉴 목록</h2>
+        <table>
+          <caption>
+            등록된 메뉴 목록
+          </caption>
+          <thead>
+            <tr>
+              <th>메뉴 번호</th>
+              <th>메뉴명</th>
+              <th>가격</th>
+              <th>카테고리</th>
+              <th>판매 상태</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>제육볶음</td>
+              <td>15000원</td>
+              <td>한식</td>
+              <th class="available">판매중</th>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>딸기아이스크림</td>
+              <td>3,000원</td>
+              <td>디저트</td>
+              <th class="available">판매중</th>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>코카콜라</td>
+              <td>2,000</td>
+              <td>음료</td>
+              <th class="soldout">품절</th>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>미트볼파스타</td>
+              <td>12,000원</td>
+              <td>양식</td>
+              <th class="available">판매중</th>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>탕수육</td>
+              <td>18,000원</td>
+              <td>중식</td>
+              <th class="available">판매중</th>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <hr />
+      <section id="add">
+        <h2>메뉴 등록</h2>
+        <form action="#" method="post">
+          <fieldset>
+            <legend>
+              <b><i>신규 메뉴 정보</i></b>
+            </legend>
+            <div>
+              <label for="menu-name">메뉴명</label>
+              <br />
+              <input
+                id="menu-name"
+                name="menuName"
+                type="text"
+                placeholder="메뉴명을 입력하세요"
+                required
+              />
+            </div>
+            <br />
+            <div>
+              <label for="price">가격</label>
+              <br />
+              <input
+                id="price"
+                name="PRICE"
+                type="text"
+                placeholder="가격을 입력하세요"
+                required
+              />
+            </div>
+            <br />
+            <div>
+              <label for="category">카테고리</label>
+              <br />
+              <select name="cuisine" id="user-cuisine" required>
+                <option value="">카테고리 선택</option>
+                <option value="Korean">한식</option>
+                <option value="Chinese">중식</option>
+                <option value="Western">양식</option>
+                <option value="Japanese">일식</option>
+              </select>
+            </div>
+            <div>
+              <p>판매 상태</p>
+
+              <input
+                type="radio"
+                id="available"
+                name="status"
+                value="on-sale"
+                checked
+              />
+              <label for="available">판매중</label>
+              <input type="radio" id="sold" name="status" value="sold-out" />
+              <label for="sold">품절</label>
+            </div>
+            <br />
+            <div>
+              <label for="explanation">메뉴 설명</label>
+              <br />
+              <textarea name="explanation" id="explanation">
+메뉴 설명을 입력하세요.</textarea
+              >
+            </div>
+            <br />
+            <div>
+              <button type="submit">메뉴 등록</button>
+              <button type="reset">다시 작성</button>
+            </div>
+          </fieldset>
+        </form>
+      </section>
+      <hr />
+      <section id="link">
+        <h2>관련 링크</h2>
+        <p>
+          프로젝트 코드는 <a href="https://github.com">GitHub</a> 에서
+          관리합니다.
+        </p>
+      </section>
+      <hr />
+    </main>
+    <footer>
+      <p>작성자: 유능한</p>
+      <p>풀스택 개발자과정 CSS 과제</p>
+      <p>작성일:2026-09-06</p>
+    </footer>
+  </body>
+</html>

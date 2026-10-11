@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 3, "column": 0}, "map": {"version":3,"sources":["file:///C:/workspace/full-stack/lecture/04_React/05_router/nexts-params/node_modules/next/navigation.js"],"sourcesContent":["module.exports = require('./dist/client/components/navigation')\n"],"names":["module","exports"],"mappings":"AAAAA,OAAOC,OAAO","ignoreList":[0]}},
+    {"offset": {"line": 8, "column": 0}, "map": {"version":3,"sources":["file:///C:/workspace/full-stack/lecture/04_React/05_router/nexts-params/src/app/menu/search/page.js"],"sourcesContent":["'use client';\r\n\r\nimport { useSearchParams } from 'next/navigation';\r\n\r\nexport default function MenuSearchResultContent() {\r\n  // 쿼리 스트링 객체 가져오기\r\n  const searchParam = useSearchParams();\r\n\r\n  // '?menuName=열무' 에서 '열무' 라는 값 추출\r\n  const menuName = searchParam.get('menuName');\r\n}\r\n"],"names":["MenuSearchResultContent","searchParam","menuName","get"],"mappings":";;;;AAEA;;AAFA;;AAIe,SAASA;;IACtB,iBAAiB;IACjB,MAAMC,cAAc,IAAA,wJAAe;IAEnC,iCAAiC;IACjC,MAAMC,WAAWD,YAAYE,GAAG,CAAC;AACnC;GANwBH;;QAEF,wJAAe;;;KAFbA"}}]
+}

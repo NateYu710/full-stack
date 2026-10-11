@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+
+        const {useState, useRef, useEffect} = React;
+
+        function LoginComponent() {
+            const [form, setForm] = useState({
+                username: '',
+                password: ''
+            });
+
+
+            const usernameRef = useRef();
+
+            /**
+             * 화면을 처음 그리는 중에는 실제 HTML 요소(input, div 등)가
+             * 아직 만들어지기 전일 수 있다.
+             * 
+             * 그래서 input에 focus를 주거나,
+             * 스크롤을 이동하는 것처럼 실제 DOM을 직접 다루는 작업은
+             * 화면이 다 만들어진 뒤 실행되는 useEffect 안에서 처리하는 경우가 많다.
+             * 
+             * state: 화면에 출력되고 변경 즉시 ui가 달라져야 하는 값
+             * Ref: 렌더링 사이에 기억해야 하지만, 변경만으로 리렌더링
+             *      할 필요가 없는 값을 저장 ex) input 포커스, 스크롤 이동,
+             *      실제 dom요소 기능을 호출할 때
+            */
+            
+            
+            
+            useEffect( () => {
+                console.log('Login컴포넌트가 마운트 되었습니다.');
+                console.log(usernameRef.current);
+                // <input type="text" name="username" value="">
+                usernameRef.current.focus();
+                // focus: 특정 입력창에 커서를 옮겨 바로 입력 가능한 상태로 만드는 기능
+            }, []);
+            
+            const onClickHandler = () => {
+                alert(`username: ${form.username}, password: ${form.password}`);
+                setForm({username:'', password:''});
+                usernameRef.current.focus();
+            }
+
+            
+            
+            
+            const onChangeHandler = (e) => {
+                setForm({
+                    ...form,
+                    [e.target.name]: e.target.value
+                // 기존 객체 값을 전부 복사해서 유지한 뒤, 변경된 값만 덮어쓰기 위해 사용한다
+                })
+            }
+            /**
+             * input 태그의 ref 속성에 usernameRef를 연결하면
+             * React가 렌더링 후 usernameRef.current에 해당 input Dom 요소를 넣어준다
+            */
+                
+            return (
+                <>
+                    <input 
+                        type="text"
+                        name="username"
+                        value={form.username}
+                        onChange={onChangeHandler}
+                        ref={usernameRef}/>
+
+                    <br/>
+                    <input 
+                        type="password"
+                        name='password'
+                        value={form.password}
+                        onChange={onChangeHandler}
+                    />
+                    <br/>
+                    <button onClick={onClickHandler}>로그인</button>
+                </>
+            )
+        }
+
+        function App() {
+            return (
+                <>
+                    <LoginComponent/>
+                </>
+            )
+        }
+
+        ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+    </script>
+
+</body>
+</html>

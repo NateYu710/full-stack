@@ -1,0 +1,14 @@
+/* [project]/src/item/MenuItem.module.css [app-client] (css) */
+.MenuItem-module__Y-LLeG__MenuItem {
+  cursor: pointer;
+  color: #8a2be2;
+  background-color: #ffebcd;
+  width: 300px;
+}
+
+.MenuItem-module__Y-LLeG__MenuItem:hover {
+  color: #fff;
+  background-color: brown;
+}
+
+/*# sourceMappingURL=src_item_MenuItem_module_1to35w9.css.map*/

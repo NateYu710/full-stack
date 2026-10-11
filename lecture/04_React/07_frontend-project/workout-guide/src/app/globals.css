@@ -1,0 +1,526 @@
+/* 공통 설정 */
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --accent: #ad4d22;
+  --text: #29343c;
+  --muted: #46545c;
+  --ink: #29343c;
+  --card: #fffaf2;
+  --border: #c9c4b9;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  background-color: #e9e7e2;
+
+  /* 기존 사진 위에 밝은 중성색을 겹친다. */
+  background-image:
+    linear-gradient(
+      110deg,
+      rgba(243, 239, 232, 0.87),
+      rgba(236, 232, 225, 0.48)
+    ),
+    url('/images/gym.jpg');
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: Arial, 'Malgun Gothic', sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* 헤더 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 22px 6%;
+  background: rgba(255, 250, 242, 0.96);
+  border-bottom: 1px solid var(--border);
+}
+
+/* 모든 화면에서 로고 이미지와 문구를 가운데 정렬 */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: var(--text);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.7px;
+  line-height: 1.3;
+}
+
+/* 미디어쿼리 밖에 있어 PC에서도 적용된다. */
+.logo-image {
+  display: block;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.header nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  font-size: 14px;
+}
+
+.header nav a {
+  padding: 8px 0;
+  color: var(--muted);
+}
+
+.header nav a:hover {
+  color: var(--accent);
+}
+
+.header nav a[href='/signup'] {
+  padding: 8px 16px;
+  color: #fffaf2;
+  background: #b5532a;
+  border: 1px solid #b5532a;
+  border-radius: 8px;
+}
+
+.header nav a[href='/signup']:hover {
+  background: #98421f;
+  border-color: #98421f;
+}
+
+/* 페이지 공통 영역 */
+.container {
+  width: min(1100px, 92%);
+  margin: 44px auto 60px;
+}
+
+.container h1 {
+  margin: 12px 0 14px;
+  font-size: clamp(28px, 3.3vw, 42px);
+  line-height: 1.35;
+  letter-spacing: -1.3px;
+  word-break: keep-all;
+}
+
+.container > section > p {
+  color: var(--muted);
+}
+
+/* 홈의 FIND YOUR WORKOUT 문구 */
+.container > section > p:first-child > strong {
+  color: #91451f;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+/* 돌아가기 링크 */
+.back {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #91451f;
+  font-size: 14px;
+}
+
+.back:hover {
+  color: #703317;
+}
+
+/* 홈: 왼쪽 안내 카드 / 오른쪽 운동 부위 */
+.home-guide-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  grid-template-areas: 'guide parts';
+  align-items: stretch;
+  gap: 26px;
+  margin-top: 30px;
+}
+
+/* 운동 부위 목록 */
+.part-list {
+  grid-area: parts;
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.part-item {
+  display: flex;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* 아이보리 운동 카드 */
+.part-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  min-height: 76px;
+  padding: 16px 22px;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  box-shadow: 0 6px 20px rgba(52, 60, 56, 0.07);
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
+}
+
+.part-number {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  color: var(--accent);
+  background: #f7e2d1;
+  border-radius: 9px;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.part-name {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.part-arrow {
+  margin-left: auto;
+  color: var(--accent);
+  font-size: 25px;
+  line-height: 1;
+}
+
+.part-card:hover,
+.part-card:focus-visible {
+  color: var(--ink);
+  background: #faeadb;
+  border-color: #bd754f;
+}
+
+.part-card:hover .part-number,
+.part-card:focus-visible .part-number {
+  background: #f0c9a9;
+}
+
+/* 블루그레이 안내 카드 */
+.guide-card {
+  grid-area: guide;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 28px;
+  color: #fffaf2;
+  background: #526b7a;
+  border: 1px solid #607d8c;
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(35, 56, 69, 0.13);
+}
+
+.guide-badge {
+  align-self: flex-start;
+  padding: 5px 10px;
+  color: #57341f;
+  background: #f2c5a0;
+  border: 1px solid #f2c5a0;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.guide-card h2 {
+  margin: 16px 0 8px;
+  color: #fffaf2;
+  font-size: 24px;
+  line-height: 1.4;
+}
+
+.guide-intro {
+  margin: 0;
+  color: #edf2f4;
+  font-size: 13px;
+}
+
+.guide-steps {
+  display: grid;
+  gap: 22px;
+  margin: 26px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.guide-steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.guide-number {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  color: #593923;
+  background: #f4d6bb;
+  border-radius: 9px;
+  font-size: 12px;
+}
+
+.guide-steps h3 {
+  margin: 0 0 5px;
+  color: #fffaf2;
+  font-size: 16px;
+}
+
+.guide-steps p {
+  margin: 0;
+  color: #edf2f4;
+  font-size: 13px;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+
+.guide-footer {
+  margin-top: auto;
+  padding-top: 17px;
+  color: #edf2f4;
+  border-top: 1px solid #91a4af;
+  font-size: 12px;
+}
+
+/* 운동 목록 화면 */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.card {
+  display: block;
+  min-width: 0;
+  padding: 24px;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.grid > .card {
+  display: flex;
+  flex-direction: column;
+  min-height: 182px;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
+}
+
+.grid > .card h2 {
+  margin: 0 0 26px;
+  font-size: 19px;
+  line-height: 1.5;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.grid > .card p {
+  margin: auto 0 0;
+  color: var(--accent);
+  font-size: 13px;
+}
+
+a.card:hover {
+  background: #faeadb;
+  border-color: #bd754f;
+}
+
+/* 운동 상세 화면 */
+.video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 24px 0 14px;
+  border: 1px solid #889ba5;
+  border-radius: 14px;
+  background: #25343d;
+}
+
+.container > section > h2 {
+  margin: 28px 0 10px;
+  color: var(--text);
+  font-size: 22px;
+}
+
+.container > section > h2 + p {
+  margin-top: 0;
+  padding: 22px 24px;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  line-height: 1.9;
+  word-break: keep-all;
+}
+
+/* 로그인·회원가입 */
+.form {
+  display: grid;
+  gap: 16px;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 28px;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+label {
+  display: grid;
+  gap: 7px;
+  font-size: 14px;
+}
+
+input,
+button {
+  padding: 12px 16px;
+  border: 1px solid #bdb4a7;
+  border-radius: 8px;
+}
+
+input {
+  width: 100%;
+  min-width: 0;
+  color: var(--ink);
+  background: #ffffff;
+}
+
+input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+button {
+  color: #fffaf2;
+  background: #b5532a;
+  border-color: #b5532a;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #98421f;
+  border-color: #98421f;
+}
+
+/* 오류 메시지 */
+.error,
+.container > section > p.error {
+  padding: 12px 16px;
+  color: #8c251c;
+  background: #fff0e9;
+  border: 1px solid #ecc5b9;
+  border-radius: 8px;
+}
+
+/* 태블릿 */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* 모바일 */
+@media (max-width: 700px) {
+  body {
+    background-attachment: scroll;
+  }
+
+  .header {
+    padding: 18px 5%;
+  }
+
+  .header nav {
+    gap: 16px;
+    font-size: 13px;
+  }
+
+  .container {
+    margin-top: 28px;
+  }
+
+  .home-guide-layout {
+    grid-template-columns: 1fr;
+    grid-template-areas: 'parts' 'guide';
+    gap: 24px;
+  }
+
+  .guide-card,
+  .form {
+    padding: 22px;
+  }
+
+  .grid {
+    gap: 12px;
+  }
+
+  .grid > .card {
+    min-height: 166px;
+    padding: 18px;
+  }
+
+  .grid > .card h2 {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 380px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 움직임 최소화 설정 */
+@media (prefers-reduced-motion: reduce) {
+  .part-card,
+  .grid > .card {
+    transition: none;
+  }
+}
