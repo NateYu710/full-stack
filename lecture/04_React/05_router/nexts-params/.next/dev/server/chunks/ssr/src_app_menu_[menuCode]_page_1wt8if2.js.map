@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///C:/workspace/full-stack/lecture/04_React/05_router/nexts-params/src/app/menu/[menuCode]/page.js"],"sourcesContent":["'use client';\r\n\r\nimport { useParams } from 'next/navigation';\r\n\r\nexport default function MenuDetail() {\r\n  const { menuCode } = useParams(); // /menu/? 동적인 값을 읽어옴\r\n\r\n  return (\r\n    <>\r\n      <h1>메뉴 상세 페이지</h1>\r\n      {/* <p>주소에서 받은 menuCode: {menuCode}</p> */}\r\n      {/*menuCode라는 이름은 폴더 이름 [menuCode]에서 가져옴*/}\r\n    </>\r\n  );\r\n}\r\n"],"names":["MenuDetail","menuCode"],"mappings":";;;;;AAEA;AAFA;;;AAIe,SAASA;IACtB,MAAM,EAAEC,QAAQ,EAAE,GAAG,IAAA,+IAAS,KAAI,qBAAqB;IAEvD,qBACE;kBACE,cAAA,8OAAC;sBAAG;;;;;;;;;;;AAKV"}}]
+}

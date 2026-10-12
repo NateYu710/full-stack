@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["file:///C:/workspace/full-stack/lecture/04_React/05_router/nexts-params/src/item/MenuItem.module.css"],"sourcesContent":[".MenuItem {\r\n  width: 300px;\r\n  background-color: blanchedalmond;\r\n  cursor: pointer;\r\n  color: blueviolet;\r\n}\r\n\r\n.MenuItem:hover {\r\n  background-color: brown;\r\n  color: white;\r\n}\r\n"],"names":[],"mappings":"AAAA;;;;;;;AAOA"}}]
+}
