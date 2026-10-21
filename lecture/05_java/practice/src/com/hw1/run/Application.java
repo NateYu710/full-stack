@@ -1,5 +1,10 @@
 package com.hw1.run;
 
-public class Application {
+import com.hw1.view.LibraryMenu;
 
+public class Application {
+    public static void main(String[] args) {
+        LibraryMenu menu = new LibraryMenu();
+        menu.mainMenu();
+    }
 }

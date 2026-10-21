@@ -20,6 +20,6 @@ public class AniBook extends Book {
     }
 
     public String toString() {
-        return "";
+        return getTitle() + " / " + getAuthor() + " / " + getPublisher() + " / " + accessAge;
     }
 }

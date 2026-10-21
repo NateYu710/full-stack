@@ -47,6 +47,6 @@ public class Member {
     }
 
     public String toString(){
-       return "";
+       return "이름: " + name + "나이: " + age + "성별: " + gender;
     }
 }

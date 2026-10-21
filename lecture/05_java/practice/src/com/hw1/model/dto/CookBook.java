@@ -20,6 +20,6 @@ public class CookBook extends Book {
     }
 
     public String toString() {
-        return "";
+        return getTitle() + " / " + getAuthor() + " / " + getPublisher() + " / " + coupon;
     }
 }
